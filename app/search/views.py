@@ -32,7 +32,7 @@ def log_query(query, libs, lib):
     msg = {'query': query, 'ip': ip, 'result': libs, 'chosen': lib, 'error': err}
     logger.warning('VIEWS: {}'.format(json.dumps(msg)))
 
-@search_view.route('/')
+@search_view.route('/libc/')  # Change this to fit your website
 def index():
     '''
     /
