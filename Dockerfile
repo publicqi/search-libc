@@ -1,6 +1,7 @@
 FROM tiangolo/uwsgi-nginx-flask:flask-python3.5
 
 # Remove sample application included in the base image.
+COPY sources.list /etc/apt/sources.list
 RUN rm /app/main.py /app/uwsgi.ini
 
 # Install cron
