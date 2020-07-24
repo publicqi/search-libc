@@ -55,9 +55,12 @@ class Engine(object):
         symbols = {}
         for line in dumped.splitlines():
             m = ofs_re.match(line)
-            symbol = m.group(1)
-            ofs = int(m.group(2), 16)
-            symbols[symbol] = ofs
+            try:
+                symbol = m.group(1)
+                ofs = int(m.group(2), 16)
+                symbols[symbol] = ofs
+            except:  # if dbg.so
+                pass
 
         symbols_list = sorted(symbols.items(), key=operator.itemgetter(1))
         return symbols_list
